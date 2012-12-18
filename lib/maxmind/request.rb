@@ -25,7 +25,7 @@ module Maxmind
       :forwarded_ip, :email, :username, :password, :transaction_id, :session_id,
       :shipping_address, :shipping_city, :shipping_region, :shipping_postal,
       :shipping_country, :user_agent, :accept_language, :order_amount,
-      :order_currency
+      :order_currency, :txn_type
 
     def initialize(attrs={})
       self.attributes = attrs
@@ -114,7 +114,8 @@ module Maxmind
         :txnID            => @transaction_id,
         :sessionID        => @session_id,
         :user_agent       => @user_agent,
-        :accept_language  => @accept_langage
+        :accept_language  => @accept_langage,
+        :txn_type         => @txn_type
       }
 
       field_set = required_fields.merge(optional_fields)
